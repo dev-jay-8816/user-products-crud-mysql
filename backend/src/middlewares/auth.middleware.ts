@@ -1,5 +1,5 @@
 import { JWT_SECRET } from "@/config";
-import User from "@/models/user.model";
+import { UserAttributes } from "@/interfaces/model/user.interface";
 import generalResponse from "@/utils/generalResponse";
 import { Response, Request } from "express";
 import { NextFunction } from "express-serve-static-core";
@@ -13,7 +13,7 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
         return generalResponse(req, res, null, 'Token not found.', 'error', true, 403)
     }
 
-    jwt.verify(token, JWT_SECRET, (err, user: User) => {
+    jwt.verify(token, JWT_SECRET, (err, user: UserAttributes) => {
         if (err) {
             return next(err);
         }

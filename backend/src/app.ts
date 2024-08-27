@@ -7,15 +7,13 @@ import { Routes } from '@interfaces/routes.interface';
 import { UserAttributes } from './interfaces/model/user.interface';
 import errorMiddleware from './middlewares/error.middleware';
 import db from './models';
-import User from './models/user.model';
 declare global {
 	// eslint-disable-next-line @typescript-eslint/no-namespace
 	namespace Express {
 		interface Request {
-			user:  User;
+			user:  UserAttributes;
 		}
 		// eslint-disable-next-line @typescript-eslint/no-empty-interface
-		// interface User extends UserAttributes {}
 	}
 }
 
@@ -50,7 +48,7 @@ class App {
 
 	private initializeMiddleware() {
 		this.app.use(cors());
-		this.app.use('/', express.static('public'));
+		this.app.use('/uploads', express.static('uploads'));
 		this.app.use(express.json());
 		this.app.use(express.urlencoded({ extended: true }));
 	}

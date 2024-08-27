@@ -1,0 +1,25 @@
+.btn-close-custom {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.img-preview {
+    width: 150px; /* Small size */
+    height: 150px; /* Small size */
+    object-fit: cover; /* Ensure image covers the container */
+    border-radius: .375rem; /* Bootstrap's border-radius for small rounded corners */
+}
+.img-container {
+    position: relative; /* For positioning the delete button */
+}

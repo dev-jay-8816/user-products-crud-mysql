@@ -1,7 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuthData } from '../context/AuthContext'
 
 const Header = () => {
+
+    const {setToken} = useAuthData();
+    const navigate = useNavigate()
+
+
+    const handleLogout = () => {
+        setToken(null);
+        navigate('/');
+    }
+
   return (
     <header className="bg-dark text-white py-3">
             <div className="container">
@@ -10,13 +20,13 @@ const Header = () => {
                     <nav>
                         <ul className="nav">
                             <li className="nav-item">
-                                <Link className="nav-link text-white" to="/">All Product</Link>
+                                <NavLink className="nav-link text-white" to="/">All Product</NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-white" to="/user-product">Your Product</Link>
+                                <NavLink className="nav-link text-white" to="/user-product">Your Product</NavLink>
                             </li>
                             <li className="nav-item">
-                            <Link className="nav-link text-white" to="/add-product">Add Product</Link>
+                            <span className="nav-link text-white" onClick={handleLogout}>Logout</span>
                             </li>
                         </ul>
                     </nav>

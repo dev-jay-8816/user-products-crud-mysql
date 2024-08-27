@@ -76,6 +76,6 @@ export default class AuthController {
     })
 
     readonly createToken = (user: User) => {
-		return jwt.sign({ email: user?.email, userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
+		return jwt.sign({ email: user?.email, id: user.id }, JWT_SECRET, { expiresIn: '7d' });
 	};
 }

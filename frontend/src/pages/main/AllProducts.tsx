@@ -1,18 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useGetAllProductAPI } from '../../services/product.services'
-
-interface IProduct {
-  id: number;
-  title: string;
-  description: string;
-  image_url?: string;
-  is_enabled?: boolean;
-  published_date: Date | string;
-  user_id: number;
-  createdAt?: Date | string;
-  updatedAt?: Date | string;
-  deletedAt?: Date | string;
-}
+import { IProduct } from '../../interfaces/product.interface';
+import ProductItem from '../../components/ProductItem';
 
 const AllProducts = () => {
   const { getAllProductAPI, isLoading } = useGetAllProductAPI()
@@ -34,13 +23,13 @@ const AllProducts = () => {
   return (
     <div>
       {!isLoading ? (
-        <>
+        <div className="d-flex flex-row gap-2">
           {products.map(el => {
             return (
-              <p>{el?.title}</p>
+              <ProductItem key={el.id} product={el} />
             )
           })}
-        </>
+        </div>
       ) : (
         <></>
       )}

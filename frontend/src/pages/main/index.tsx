@@ -24,16 +24,18 @@ const routes: Array<{ id: string; path: string, element: ReactNode }> = [
 const Main = () => {
     return (
         <>
-        <Header />
-            <Suspense fallback={<p>Loading...</p>}>
-                <Routes>
-                    {
-                        routes.map((route) => {
-                            return <Route key={route.id} path={route.path} element={route.element} />
-                        })
-                    }
-                </Routes>
-            </Suspense>
+            <Header />
+            <div className="container mt-4">
+                <Suspense fallback={<p>Loading...</p>}>
+                    <Routes>
+                        {
+                            routes.map((route) => {
+                                return <Route key={route.id} path={route.path} element={route.element} />
+                            })
+                        }
+                    </Routes>
+                </Suspense>
+            </div>
         </>
     )
 }

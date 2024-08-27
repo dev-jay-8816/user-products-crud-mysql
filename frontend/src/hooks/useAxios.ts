@@ -60,4 +60,8 @@ export const useAxiosPost = <T = unknown>(options?: AxiosRequestConfig) => {
     return useAxiosCore<T>({ method: 'POST', options });
 };
 
+export const useAxiosDelete = <T = unknown>(options?: AxiosRequestConfig) => {
+    return useAxiosCore<T>({ method: 'DELETE', options });
+};
+
 export default useAxiosCore;

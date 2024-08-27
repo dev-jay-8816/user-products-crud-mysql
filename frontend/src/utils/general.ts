@@ -1,0 +1,1 @@
+export const getImageUrl = (path: string) =>  import.meta.env.VITE_NODE_API_BASE_URL + path;
