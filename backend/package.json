@@ -6,6 +6,7 @@
     "start": "cross-env NODE_ENV=production node ./dist/server.js",
     "dev": "cross-env NODE_ENV=development nodemon src/server.ts",
     "build:tsc": "tsc && tsc-alias",
+    "rough": "ts-node rough.ts",
     "sequelize:migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
